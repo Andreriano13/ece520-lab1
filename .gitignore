@@ -1,0 +1,25 @@
+# Vivado regenerable output - rebuilt by re-running synthesis/implementation
+*.cache/
+*.hw/
+*.ip_user_files/
+*.sim/
+.Xil/
+
+# Vivado journals and logs
+*.jou
+*.log
+*.str
+vivado*.backup.jou
+vivado*.backup.log
+hs_err_pid*.log
+
+# Simulation waveform databases (large, regenerable)
+*.wdb
+
+# OS junk
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# NOTE: *.runs/ is deliberately NOT ignored. It holds the bitstream and the
+# utilization and timing reports that the README cites as evidence.

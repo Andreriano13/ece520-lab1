@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tb_blinking_led_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="tb_blinking_led" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="506.789 ns"></ZoomStartTime>
+      <ZoomEndTime time="536.340 ns"></ZoomEndTime>
+      <Cursor1Time time="540.089 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="197"></NameColumnWidth>
+      <ValueColumnWidth column_width="114"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="7" />
+   <wave_markers>
+      <marker time="600030" label="" />
+   </wave_markers>
+   <wvobject fp_name="/tb_blinking_led/sys_clk" type="logic">
+      <obj_property name="ElementShortName">sys_clk</obj_property>
+      <obj_property name="ObjectShortName">sys_clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_blinking_led/rst" type="logic">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_blinking_led/led_en" type="logic">
+      <obj_property name="ElementShortName">led_en</obj_property>
+      <obj_property name="ObjectShortName">led_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_blinking_led/led_out" type="logic">
+      <obj_property name="ElementShortName">led_out</obj_property>
+      <obj_property name="ObjectShortName">led_out</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_blinking_led/TB_CYCLES" type="other">
+      <obj_property name="ElementShortName">TB_CYCLES</obj_property>
+      <obj_property name="ObjectShortName">TB_CYCLES</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_blinking_led/CLK_PERIOD" type="other">
+      <obj_property name="ElementShortName">CLK_PERIOD</obj_property>
+      <obj_property name="ObjectShortName">CLK_PERIOD</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_blinking_led/uut/counter" type="array">
+      <obj_property name="ElementShortName">counter[31:0]</obj_property>
+      <obj_property name="ObjectShortName">counter[31:0]</obj_property>
+   </wvobject>
+</wave_config>
