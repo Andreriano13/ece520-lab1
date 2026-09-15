@@ -1,4 +1,4 @@
-# ECE 520/L — Lab 1: LED Blinker
+# ECE 520/L Lab 1: LED Blinker
 
 **Andres Riano**
 Zybo Z7-10, AMD Vivado 2023.2, VHDL
@@ -7,10 +7,7 @@ Zybo Z7-10, AMD Vivado 2023.2, VHDL
 
 ## Overview
 
-This lab builds an LED blinker in the programmable logic of the Zynq-7000 on the Zybo Z7-10. The
-blinker is a clock divider. It counts cycles of the 125 MHz system clock and toggles an output when
-the count runs out. The count limit is a generic, so the same module can blink once a second on
-hardware or once every ten clock cycles in simulation without changing the design.
+This lab builds an LED blinker in the on the Zybo Z7-10. The blinker is a clock divider. It counts cycles of the 125 MHz system clock and toggles an output when the count runs out. The count limit is a generic, so the same module can blink once a second on hardware or once every ten clock cycles in simulation without changing the design.
 
 There are two Vivado projects, one for each section of the lab. Both use the same blinking_led
 module, and the file is identical in each. Only the constraints differ.
@@ -32,7 +29,7 @@ module, and the file is identical in each. Only the constraints differ.
 
 ## Design Summary
 
-The Zybo Z7 clock is 125 MHz, which the constraints file sets with an 8.00 ns period. That means
+The clock is 125 MHz, which the constraints file sets with an 8.00 ns period. That means
 125,000,000 ticks go by every second. The value I needed was half of that, because one blink is two
 toggles, an on and an off. So each toggle gets half a second of ticks, which is 62,500,000. That is
 the default value of the CLK_CYCLES_PER_TOGGLE generic. The counter compares against
@@ -106,7 +103,7 @@ flipped. The utilization report below confirms zero latches were built.
 
 In rgb_led_top, led_en is tied high because the multiplexer already covers every off condition.
 
-All pins come from Digilent's Zybo-Z7-Master.xdc. Each project has its own zybo_z7.xdc.
+All pins come from Zybo-Z7-Master.xdc. Each project has its own zybo_z7.xdc.
 
 | Port | Pin | Board resource | Project |
 |---|---|---|---|
@@ -121,7 +118,7 @@ All pins come from Digilent's Zybo-Z7-Master.xdc. Each project has its own zybo_
 | rgb_out[1] | F17 | LED6 Green | Tasks |
 | rgb_out[2] | M17 | LED6 Blue | Tasks |
 
-RGB LED 6 is used. LED 5 exists only on the Zybo Z7-20.
+RGB LED 6 is used.
 
 ---
 
@@ -195,13 +192,7 @@ Timing summary after routing:
 | Worst Hold Slack | +0.263 ns |
 | Failing endpoints, hold | 0 of 53 |
 
-All user specified timing constraints are met. The clock period is 8.00 ns and the worst path
-finished in 4.825 ns, so it arrived 3.175 ns early. Positive slack means margin. Negative slack
-would mean the signal arrives after the clock edge that is supposed to capture it, and the flip-flop
-would latch a value that has not settled. That is the kind of design that works on one board and
-fails on another, or works cold and fails once the chip warms up. Vivado will still generate a
-bitstream for a design that fails timing, so this line is the evidence that the design is reliable
-rather than lucky.
+All specified timing constraints are met. The clock period is 8.00 ns and the worst path finished in 4.825 ns, so it arrived 3.175 ns early. Positive slack means margin. Negative slack would mean the signal arrives after the clock edge that is supposed to capture it.
 
 Both projects synthesised, implemented and generated a bitstream with no errors, and both were
 programmed onto the Zybo Z7-10 over JTAG.
@@ -219,8 +210,7 @@ or more than one switch leaves the LED off.
 ## Known Issues or Limitations
 
 The counter is declared wider than it needs to be. I used 32 bits when 26 are enough. Synthesis
-trims the excess so nothing is wasted in the final hardware, but sizing it deliberately would be
-better than relying on the tool to clean up after me.
+trims the excess so nothing is wasted in the final hardware, but sizing it would be better than relying on the tool to clean up after me.
 
 The switch inputs are not synchronised. They go straight from the package pins into the
 combinational multiplexer. The switches are asynchronous to sys_clk, so if those inputs fed a
@@ -259,4 +249,4 @@ the counter, select uut in the Scope panel, add counter to the wave window, then
 1. Digilent, Zybo Z7 Reference Manual
 2. Digilent, Zybo-Z7-Master.xdc, from the digilent-xdc GitHub repository
 3. ECE 520/L Lab 1 handout, and Lab 0
-4. AI assistance (Claude) was used for help with the VHDL code.
+4. AI assistance (Claude) was used for help with implementing and studying the code(Debugging).
